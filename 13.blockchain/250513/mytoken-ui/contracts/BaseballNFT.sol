@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract BaseballNFT is ERC721 {
     // toString() 메서드 등 uint256타입을 Strings타입 변환하게 할 수 있는 메서드
+
     using Strings for uint256;
     address public owner;
     mapping(uint256 tokenId => bool) public minted;
@@ -54,6 +55,7 @@ contract BaseballNFT is ERC721 {
 
         string memory baseURI = _baseURI();
         // ipfs://bafybeicdcy3wtpi7lt7gyogbmsedilui62efc7niuja7rbpl5nfmrm4fki/0.json
+
         return
             bytes(baseURI).length > 0
                 ? string.concat(baseURI, tokenId.toString(), ".json")
